@@ -1,0 +1,8 @@
+# Compiled output
+/dist
+
+# Node
+/node_modules
+
+#config
+/src/config/atom-task-list-firebase-adminsdk.json
