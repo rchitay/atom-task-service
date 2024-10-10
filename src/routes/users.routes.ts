@@ -20,9 +20,7 @@ router.get("/users/:email", async (req, res) => {
             .get();
 
         if (userQuerySnapshot.empty) {
-            const newUser: User = {email: email};
-            const docRef = await db.collection(collectionUser).add(newUser);
-            res.status(201).json({id: docRef.id, message: "Exists"});
+            res.status(200).json({message: "Not Exists"});
         } else {
             const user = userQuerySnapshot.docs[0];
             res.status(200).json({message: "Exists", id: user.id});

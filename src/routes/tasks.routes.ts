@@ -15,6 +15,7 @@ router.get("/tasks", async (req, res) => {
     try {
         // const idUser = req.params.idUser;
         const snapshot = await db.collection(collectionTask)
+        .orderBy("creationDate", "desc")
         .get();
         // .where("userId", "==", idUser).get();
         if (snapshot.empty) {
