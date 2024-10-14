@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import * as functions from 'firebase-functions';
 
 import taskRoutes from './routes/tasks.routes';
 import userRoutes from './routes/users.routes';
@@ -12,6 +13,4 @@ server.use(express.json());
 server.use(taskRoutes);
 server.use(userRoutes);
 
-server.listen(5000, () => {
-    console.log('listening 5000');
-});
+exports.api = functions.https.onRequest(server);
